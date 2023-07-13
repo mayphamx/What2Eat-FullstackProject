@@ -4,11 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project 1</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link href="./assets/style.css" >
 </head>
 
 <body>
-  
+  <div class="tile is-ancestor">
+    <div class="tile is-vertical">
+      <div class="tile is-flex is-justify-content-center is-flex-direction-row">
+        <div class="tile is-parent is-4">
+          <article class="tile is-child notification is-success">
+            <div class="content">
+              <p class="title">Click here if you'd like to cook at home!</p>
+              <div class="content">This page will allow you to input ingredients you have at home and will present a list of recipes including the ingredients you input.</div>
+            </div>
+          </article>
+        </div>
+        <div class="tile is-parent is-4">
+          <article class="tile is-child notification is-success">
+            <div class="content">
+              <p class="title">Click here if you'd like to go out and eat!</p>
+              <div class="content">This page will present you a map of nearby restaurants based on your ZIP code input.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
  <!-- JS -->
 <script src="./assets/script.js"></script>
 <!-- Jquery -->
