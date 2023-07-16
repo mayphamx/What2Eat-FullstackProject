@@ -15,13 +15,13 @@
 // };
 
  // button & user input id -> variables
- // var foodSearchButton = document.getElementById(foodSearch-btn);
-//  var userInput = document.getElementById(userInput);
+ var foodSearchButton = document.getElementById(foodSearch-btn);
+ var userInput = document.getElementById(userInput);
  
  // click event listener with function
- // foodSearchButton.addeventlistener('click',getFood);
-// var recipeSearchButton = document.getElementById(recipeSearch-btn);
-// recipeSearchButton.addeventlistener('click',getRecipe);
+ foodSearchButton.addeventlistener('click',getFood);
+var recipeSearchButton = document.getElementById(recipeSearch-btn);
+recipeSearchButton.addeventlistener('click',getRecipe);
 
 function getRecipe() {
   var inputCity = document.getElementById('userInput');
