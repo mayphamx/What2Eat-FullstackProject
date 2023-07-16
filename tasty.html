@@ -7,7 +7,7 @@
 		content="IE=edge" />
 <meta name="viewport"
 		content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
+<title>What2Eat</title>
 <link rel="stylesheet"
 		href=
 "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
@@ -18,7 +18,7 @@
 		<br>
 		<br>
 		<br>
-		<h1 class="title has-text-success">Page Title Header</h1>
+		<h1 class="title has-text-success">What2Eat</h1>
 		<br>
 		<br>
 		<!-- <div class="is-fullheight justify-content center"> -->
@@ -32,7 +32,11 @@
 				<div class="tile is-parent is-vertical">
 					<article class="tile is-child notification is-warning">
 						<p class="title">Select Ingredients</p>
-						<p class="subtitle">Search bar?</p>
+						<input class="input" type="text" placeholder="Select Ingredients">
+						<input id="userInput"></input>
+						<button id="foodSearch-btn">Search</button>
+						<br>
+						<br>
 						
 						<!-- second tile -->
 					</article>
@@ -65,10 +69,12 @@
 		</div>
 		<div class="tile is-parent">
 		<article class="tile is-child notification is-light">
+			<button class="button is-rounded">Search Recipe</button>
+<button id="recipeSearch-btn"></button>
 			<!-- <p class="title">Wide tile</p> -->
 
 
-			<p class="subtitle">Insert search button</p>
+			<!-- <p class="subtitle">Insert search button</p> -->
 
 		</article>
 		</div>
