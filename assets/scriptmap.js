@@ -44,7 +44,7 @@ let infowindow;
 
 function initMap(lat,lon) {
   const sydney = new google.maps.LatLng(lat, lon);
-  infowindow = new google.maps.InfoWindow();
+
   map = new google.maps.Map(document.getElementById("map"), {
     center: sydney,
     zoom: 15,
@@ -76,15 +76,37 @@ function initMap(lat,lon) {
 }
 
 function createMarker(place) {
+  function contentString(name, address) {
+    return`
+  <div>
+    <h2>${name}</h2>
+    <p>${address}</p>
+  </div>
+  `} 
+  ;
+  infowindow = new google.maps.InfoWindow({
+    content: contentString(place.name,place.formatted_address)
+  });
   if (!place.geometry || !place.geometry.location) return;
 
   const marker = new google.maps.Marker({
     map,
     position: place.geometry.location,
+    title: place.name,
+    address: place.formatted_address
   });
 
+  marker.addListener("click", () => {
+    infowindow.open({
+      anchor: marker,
+      map,
+    });
+  })
+
+  console.log(place);
   google.maps.event.addListener(marker, "click", () => {
-    infowindow.setContent(place.name || "");
+    console.log(marker);
+    infowindow.setContent(contentString(place.name,place.formatted_address));
     infowindow.open(map);
   });
 }
