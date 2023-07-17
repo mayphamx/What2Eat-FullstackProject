@@ -6,7 +6,6 @@ var recipeKey2= '1ab6ffd471mshbf01716883afebfp1595bcjsnfab03526961a';
 
 
  // button & user input id -> variables
- var foodSearchButton = document.getElementById('foodSearch-btn');
  var userInput = document.getElementById('userInput');
  var recipeSearchButton = document.getElementById('recipeSearch-btn');
 //  var recipeList = document.getElementById('recipe-list');
