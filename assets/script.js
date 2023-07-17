@@ -18,7 +18,7 @@ var recipeKey2= '1ab6ffd471mshbf01716883afebfp1595bcjsnfab03526961a';
  function getRecipe() {
    // API variables using user input 
    var userInput = document.getElementById('userInput').value;
-   var recipeApi = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query='+userInput+'&instructionsRequired=true&fillIngredients=true&addRecipeInformation=true&ignorePantry=true';
+   var recipeApi = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query='+userInput+'&instructionsRequired=true&fillIngredients=true&addRecipeInformation=true&ignorePantry=true&number=20';
    var recipeOptions = {
      method: 'GET',
      headers: {
@@ -36,7 +36,7 @@ var recipeKey2= '1ab6ffd471mshbf01716883afebfp1595bcjsnfab03526961a';
       console.log('Recipe Data Fetch Response \n-------------');
       console.log(data);
       
-    for (x = 0; x < 6; x++) {
+    for (x = 0; x < 18; x++) {
       var recipeList = document.getElementById("recipe-list"+(x+1));
         
       // clear items appended on page
