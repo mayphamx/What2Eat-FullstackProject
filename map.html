@@ -23,7 +23,7 @@
   let infowindow;
 
 function initMap() {
-  const sydney = new google.maps.LatLng(-33.867, 151.195);
+  const sydney = new google.maps.LatLng(30.27, -97.74);
 
   infowindow = new google.maps.InfoWindow();
   map = new google.maps.Map(document.getElementById("map"), {
@@ -33,15 +33,22 @@ function initMap() {
 
   const request = {
     // parameters looking for restaurants
-    query: "restaurants",
-    fields: ["name", "geometry"],
+    location: sydney,
+    radius: '500',
+    query: 'restaurant',
+    // type: ['restaurant'],
+    // fields: ['name', 'geometry'],
   };
 
   service = new google.maps.places.PlacesService(map);
-  service.findPlaceFromQuery(request, (results, status) => {
+  // nearbySearch - include location radius type (multiple results)
+  // findPlaceFromQuery - include query, fields (1 result only)
+  // textSearch - include location, radius, query (multiple results)
+  service.textSearch(request, (results, status) => {
     if (status === google.maps.places.PlacesServiceStatus.OK && results) {
       for (let i = 0; i < results.length; i++) {
         createMarker(results[i]);
+        console.log(results[i]);
       }
 
       map.setCenter(results[0].geometry.location);
