@@ -1,18 +1,24 @@
-// var keymay = "z4056nDrqbPFty14rw9X8S896596B07p";
-var searchButton = document.getElementById('map-search');
-searchButton.addEventListener('click', getRecipe);
+var searchBtn = document.getElementById("map-search");
+searchBtn.addEventListener('click', getPOIs);
 
-function getRecipe() {
-  // API variables using user input 
+
+function getPOIs() {
   var userInput = document.getElementById('user-input').value;
-  var recipeApi = 'https://api.tomtom.com/search/2/categorySearch/'+userInput+'.json?categorySet=7315&view=Unified&key=z4056nDrqbPFty14rw9X8S896596B07p';
-    
-    fetch(recipeApi)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log('Recipe Data Fetch Response \n-------------');
-      console.log(data);
-    })}
+  var address = userInput.split(' ');
+  console.log(address);
+  var urlarray = "";
+  for (i=0; i < address.length; i++) {
+    urlarray +=(address[i]+"%20");
+    urlarray.toString();
+  }
+  console.log(urlarray);
 
+
+fetch("https://api.tomtom.com/search/2/search/" + urlarray +".json?key=dZ5BlNRNhnRnPRnSsYHD3rLpSg7UFuY9")
+.then (function (response) {
+  return response.json();
+})
+.then (function (data) {
+  console.log(data);
+})
+}
