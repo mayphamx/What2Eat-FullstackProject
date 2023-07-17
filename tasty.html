@@ -1,111 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible"
-		content="IE=edge" />
+  content="IE=edge" />
 <meta name="viewport"
-		content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
-<link rel="stylesheet"
-		href=
-"https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  content="width=device-width, initial-scale=1.0" />
+<title>What2Eat</title>
+<!-- bulma styling link -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+<!-- css for boxes -->
+<style>
+.custom-box {
+	height: 800px;}
+.custom-box {
+	width: 425px;}
+</style>
 </head>
 
 <body>
-	<div class="content container has-text-centered is-fullheight justify-content-center">
-		<br>
-		<br>
-		<br>
-		<h1 class="title has-text-success">Page Title Header</h1>
-		<br>
-		<br>
-		<!-- <div class="is-fullheight justify-content center"> -->
-			
-		
-		
-		<!-- ingredients tile -->
-	<div class="tile is-ancestor">
-		<div class="tile is-vertical is-150">
-			<div class="tile">
-				<div class="tile is-parent is-vertical">
-					<article class="tile is-child notification is-warning">
-						<p class="title">Select Ingredients</p>
-						<p class="subtitle">Search bar?</p>
-						<!-- USER INPUT -->
-						<input id="userInput"></input>
-						<!-- SEARCH BUTTON FOR INGREDIENTS -->
-						<button id="foodSearch-btn">ADD INGREDIENTS TO LIST</button>
-						
-						<!-- second tile -->
-					</article>
-					<article class="tile is-child notification is-dark">
-						<!-- <p class="title"></p> -->
-						<p class="subtitle">List of selected ingredients</p>
-						<hr>
-						<hr>
-						<hr>
-						<hr>
-						<hr>
-						<hr>
-						<hr>
-						<hr>
-						<hr>
-						<hr>
-<!-- middle tile -->
-			<!-- </article>
-		</div>
-		<div class="tile is-parent">
-			<article class="tile is-child notification is-danger">
-			<p class="title">Middle Tile</p>
-
-
-			<p class="subtitle">Middle second tile</p> -->
-
-<!-- wide tile -->
-			</article>
-		</div>
-		</div>
-		<div class="tile is-parent">
-		<article class="tile is-child notification is-light">
-			<!-- <p class="title">Wide tile</p> -->
-
-
-			<p class="subtitle">Insert search button</p>
-			<!-- SEARCH BUTTON FOR RECIPES -->
-			<button id="recipeSearch-btn">SEARCH FOR RECIPE</button>
-
-		</article>
-		</div>
-	</div>
-	<!-- Tallest tile -->
-	<div class="tile is-parent">
-		<article class="tile is-child notification is-info">
-		<div class="content">
-			<p class="title">Recipes</p>
-
-			<p class="subtitle">
-			List/Cards results based on ingredients
-			</p>
-			<!--  -->
-			<h4 id ="recipe-title">Recipe Title:</h4>
-			<ul id="recipe-list">Recipe Info List:</ul>
-
-			<div class="content"></div>
-		</div>
-		</article>
-	</div>
-	</div>
-	</div>
-	</div>
+ <div class="content container has-text-centered is-fullheight justify-content-center">
+  <br>
+	<!-- header -->
+  <section class="hero is-success">
+   <div class="hero-body">
+    <p class="title">🍴 What 2 Eat 🍴</p>
+   </div>
+  </section>
 	
+  <br>
+	<!-- USER INPUT -->
+	<input id="userInput"></input>
+	<!-- SEARCH BUTTON FOR INGREDIENTS -->
+	<button id="recipeSearch-btn">SEARCH FOR RECIPE</button>
+	<br>
+	<br>
+
+	<div class="container">
+		<div class="columns">
+
+				<!-- Box 1 -->
+			<div class="column">
+				<div class="box custom-box">
+   			<ul id="recipe-list1">Recipe Info List:</ul>
+				</div>
+			</div>
+
+				<!-- Box 2 -->
+			<div class="column">
+				<div class="box custom-box">
+				<ul id="recipe-list2">Recipe Info List:</ul>
+				</div>
+			</div>
+
+				<!-- Box 3-->
+			<div class="column">
+				<div class="box custom-box">
+				<ul id="recipe-list3">Recipe Info List:</ul>
+				</div>
+			</div>
+			</div>
+
+				<!-- Box 4 -->
+			<div class="columns">
+			<div class="column">
+				<div class="box custom-box">
+				<ul id="recipe-list4">Recipe Info List:</ul>
+				</div>
+			</div>
+
+			<!-- Box 5 -->
+			<div class="column">
+				<div class="box custom-box">
+				<ul id="recipe-list5">Recipe Info List:</ul>
+				</div>
+			</div>
+
+				<!-- Box 6 -->
+			<div class="column">
+				<div class="box custom-box">
+				<ul id="recipe-list6">Recipe Info List:</ul>
+				</div>
+			</div>
+
+    </div>
+  </div>
+
 <!-- JS -->
 <script src="./assets/script.js"></script>
 </body>
-
 </html>
-
-
-
-<!-- site source: https://www.geeksforgeeks.org/bulma-tiles/?ref=lbp -->

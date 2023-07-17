@@ -9,48 +9,69 @@ var recipeKey2= '1ab6ffd471mshbf01716883afebfp1595bcjsnfab03526961a';
  var foodSearchButton = document.getElementById('foodSearch-btn');
  var userInput = document.getElementById('userInput');
  var recipeSearchButton = document.getElementById('recipeSearch-btn');
+//  var recipeList = document.getElementById('recipe-list');
  
  // click event listener with function
-// foodSearchButton.addeventlistener('click',getFood);
-recipeSearchButton.addEventListener('click',getRecipe);
-
-function getRecipe() {
-  // API variables using user input 
-  var userInput = document.getElementById('userInput').value;
-  var recipeApi = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query='+userInput+'&instructionsRequired=true&fillIngredients=true&addRecipeInformation=true&ignorePantry=true';
-  var recipeOptions = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': '1ab6ffd471mshbf01716883afebfp1595bcjsnfab03526961a',
-      'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-    }
-  };
-
-  fetch(recipeApi, recipeOptions)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-  console.log('Recipe Data Fetch Response \n-------------');
-  console.log(data);
-  // loop through data/recipe
-  for (x = 0; x < 6; x++) {
-    var title = data.results[x].title;
-    console.log('Recipe Title \n-------------');
-    console.log(title);
+ // foodSearchButton.addeventlistener('click',getFood);
+ recipeSearchButton.addEventListener('click',getRecipe);
+ 
+ function getRecipe() {
+   // API variables using user input 
+   var userInput = document.getElementById('userInput').value;
+   var recipeApi = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch?query='+userInput+'&instructionsRequired=true&fillIngredients=true&addRecipeInformation=true&ignorePantry=true';
+   var recipeOptions = {
+     method: 'GET',
+     headers: {
+       'X-RapidAPI-Key': '1ab6ffd471mshbf01716883afebfp1595bcjsnfab03526961a',
+       'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+      }
+    };
     
+    //fetch api 
+    fetch(recipeApi, recipeOptions)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log('Recipe Data Fetch Response \n-------------');
+      console.log(data);
+      
+    for (x = 0; x < 6; x++) {
+      var recipeList = document.getElementById("recipe-list"+(x+1));
+        
+      // clear items appended on page
+      if(recipeList !== "")
+      {
+        recipeList.innerHTML = "";
+      }
+      // loop through data/recipe to append items on page
+      // for (x = 0; x < 6; x++) {
+        var titleEl = document.createElement("h2");
+        titleEl.textContent = (data.results[x].title);
+        recipeList.appendChild(titleEl);
 
-    console.log("Recipe Instructions\n-------------");
-    // loop through instruction steps per each data
-    var instructions = data.results[x].analyzedInstructions[0].steps; // returns instructions of FIRST result in a array
-    // console.log(instructions);
-    for (i = 0; i < instructions.length; i++) {
-      console.log((i+1)+"."+instructions[i].step);
-    
-    }
-  }
-    
-  })
+        var imageEl = document.createElement("img");
+        imageEl.setAttribute("src", data.results[x].image);
+        imageEl.setAttribute("alt", "Image of food based on recipe.");
+        recipeList.appendChild(imageEl);
+
+        var minutesEl = document.createElement('h4');
+        minutesEl.textContent = "Ready in " +(data.results[x].readyInMinutes)+ " minutes!";
+        recipeList.appendChild(minutesEl);
+        
+        // loop through instruction steps per each data
+        var instructionsData = data.results[x].analyzedInstructions[0].steps; // returns instructions of FIRST result in a array
+
+        for (i = 0; i < instructionsData.length; i++) {
+          var instructionsEl = document.createElement("li");
+          instructionsEl.textContent =(data.results[x].analyzedInstructions[0].steps[i].step);
+          recipeList.append(instructionsEl);}
+
+        var sourceEl = document.createElement('h6');
+        sourceEl.textContent = "Source: " +(data.results[x].sourceName);
+        recipeList.appendChild(sourceEl);
+      
+  }})
 }
 
 // getRecipe();
