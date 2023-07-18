@@ -7,41 +7,49 @@
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
   <title>What2Eat</title>
   <link rel="stylesheet" type="text/css" href="./assets/style.css"/>
-<!-- styling css -->
+  <!-- styling css -->
   <style>
-  body {
-  background-color: #3d9db2bf;}  
+    body {
+      background-color: #3d9db2bf;
+    }  
 
-  .header {
-	background-color: #87cadabf;
-	border-radius: 30px;
-  font-size : larger;}
+    .header {
+	    background-color: #87cadabf;
+	    border-radius: 30px;
+      /* font-size : larger; */
+      padding-top: 14px;
+    }
+
+    .container {
+      max-height: 133px;
+    }
   </style>
 </head>
 
 <body>
-<!-- header -->
- <div class="content container has-text-centered is-fullheight justify-content-center">
+  <!-- header -->
+  <div class="content container has-text-centered justify-content-center">
   <br>
-  <section class="header">
-   <div class="hero-body">
-    <h1 class="title">🍉🍍🍅 WHAT 2 EAT (IN) 🍅🍍🍉</h1>
-   </div>
-  </section>
-  </div>
+    <section class="header">
+      <div class="hero">
+      <h1 class="title">🍉🍍🍅 WHAT 2 EAT (OUT) 🍅🍍🍉</h1>
+      </div>
+    </section>
+
 
   <!-- user input and button search -->
-<div id="search">
-  <input id="user-input" class="input is-rounded" type="text" placeholder="Enter your address">
-  <button  class="button is-rounded" id="map-search">Search</button>
+  <div id="search" style="margin-bottom: 10px">
+    <input id="user-input" class="input is-rounded" type="text" placeholder="Enter your address">
+    <button  class="button is-rounded" id="map-search">Search</button>
+  </div>
 </div>
 
-<!-- google maps API ID -->
-<div id="map"></div>
+  <!-- google maps API ID -->
+  <div id="map"></div>
 
-<!-- JS -->
-<script src="./assets/scriptmap.js"></script>
-<!-- source for google maps API -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDr_dT0gyfPk9TNst7heS7aD12S8A2nLk&libraries=places&callback=initMap"></script>
+  <!-- JS -->
+  <script src="./assets/scriptmap.js"></script>
+  <!-- source for google maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDr_dT0gyfPk9TNst7heS7aD12S8A2nLk&libraries=places&callback=initMap"></script>
 </body>
 </html>

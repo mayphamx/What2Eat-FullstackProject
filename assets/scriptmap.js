@@ -8,7 +8,6 @@ function getCoordinates() {
   var userInput = document.getElementById('user-input').value;
   // define user input and concat to tomtom api string
   var address = userInput.split(' ');
-  console.log(address);
   var urlArray = "";
   for (i=0; i < address.length; i++) {
     urlArray +=(address[i]+"%20");
@@ -20,12 +19,11 @@ function getCoordinates() {
     return response.json();
   })
   .then (function (data) {
-    console.log(data);
     // define lat and lon as vars per data info -> use as parameters in initMap function
     let lat = data.results[0].position.lat;
     let lon = data.results[0].position.lon;
     initMap(lat,lon);
-})
+  })
 }
 
 // google places maps api call
@@ -54,7 +52,6 @@ function initMap(lat,lon) {
     if (status === google.maps.places.PlacesServiceStatus.OK && results) {
       for (let i = 0; i < results.length; i++) {
         createMarker(results[i]);
-        console.log(results[i]);
       }
       map.setCenter(results[0].geometry.location);
     }
@@ -72,6 +69,7 @@ function createMarker(place) {
   </div>
   `};
 
+  // passes content to marker 
   infowindow = new google.maps.InfoWindow({
     content: contentString(place.name,place.formatted_address,place.icon)
   });
@@ -85,6 +83,7 @@ function createMarker(place) {
     icon: place.icon
   });
 
+  // displays content when marker is clicked 
   marker.addListener("click", () => {
     infowindow.open({
       anchor: marker,
@@ -92,9 +91,7 @@ function createMarker(place) {
     });
   });
 
-  console.log(place);
   google.maps.event.addListener(marker, "click", () => {
-    console.log(marker);
     infowindow.setContent(contentString(place.name,place.formatted_address,place.icon));
     infowindow.open(map);
   });
