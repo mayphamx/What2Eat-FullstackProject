@@ -1,9 +1,11 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
-/* index.html */
+/* mapssss.html  */
 #map {
-  height: 90%;}
+  height: 84%;
+}
 
+/* index.html */
 html,
 body {
   height: 100%;
@@ -23,12 +25,8 @@ body {
   padding: 1% 40%;
 }
 
-
-
-/* .box {
-	height: 800px;}
-.box {
-	width: 425px;}
-.divScroll {
-overflow-y: scroll;
-height: 770px; */
+@media screen and (max-width: 768px) {
+  #map {
+    margin-top: 85px;
+  }
+}
