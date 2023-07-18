@@ -10,39 +10,35 @@
 <!-- bulma styling link -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 <!-- css for boxes -->
-<link rel="style" href="./assets/style.css">
+<link rel="stylesheet" type="text/css" href="./assets/style.css"/>
 
+<!-- styling css -->
 <style>
-
+/* header styling */
 .header {
 	background-color: #3d9db2bf;
-	border-radius: 30px;
-}
-body{
-	background-image: url(assets/images/images/—Pngtree—memphis\ geometric\ figures\ background_1441067.png);
+	border-radius: 30px;}
 
-}
-.input-id{
-	background-color: aquamarine;
-}
+/* image for background  */
+body{
+	background-image: url(assets/images/images/—Pngtree—memphis\ geometric\ figures\ background_1441067.png);}
+
+/* image for background of box */
 .box{
 	background-color: bisque;
 	background-image: url(./assets/images/images/foodbox2.jpg);
 	background-size: cover;
 	background-position: center;
-	border-radius: 25px;
-}
+	border-radius: 25px;}
 
-/*  */
 .ingredient-header{
-	margin-top: 2em;
-}
+	margin-top: 2em;}
 
 /* styling for list appended (instructions list) */
 li {
 	counter-increment: item;
-	margin-bottom: 5px;
-}
+	margin-bottom: 5px;}
+
 li:before {
 	margin-right: 10px;
 	content: counter(item);
@@ -51,17 +47,14 @@ li:before {
 	color: white;
 	width: 1.2em;
 	text-align: center;
-	display: inline-block;
-}
+	display: inline-block;}
 
 /* styling for paragraph (ingredient list) */
 p {
 	counter-increment: step-counter;
-	margin-bottom: 5px;
-	/* list-style-type: none */
-}
+	margin-bottom: 5px;}
+
 p:before {
-	/* counter-reset: item; */
 	margin-right: 10px;
 	content: counter(step-counter);
 	background: green;
@@ -69,18 +62,18 @@ p:before {
 	color: white;
 	width: 1.2em;
 	text-align: center;
-	display: inline-block;
-}
+	display: inline-block;}
+
+/* box size */
 .custom-box {
 	height: 600px;}
 .custom-box {
 	width: 400px;}
+
+/*scroll per each box  */
 .divScroll {
 overflow-y: scroll;
-/* color: black; */
-height: 550px;
-/* width: 400px; */
-}
+height: 550px;}
 </style>
 </head>
 
@@ -90,18 +83,22 @@ height: 550px;
 	<!-- header -->
   <section class="header">
    <div class="hero-body">
-    <h1 class="title">🍉🍍🍅 WHAT 2 EAT 🍅🍍🍉</h1>
+    <h1 class="title">🍉🍍🍅 WHAT 2 EAT (IN) 🍅🍍🍉</h1>
    </div>
   </section>
 	
   <br>
-	<!-- USER INPUT -->
-	<input id="userInput" class="input is-rounded" placeholder="">
-	<br>
-	<br>
-	<!-- SEARCH BUTTON FOR INGREDIENTS -->
-	<button class="button is-rounded", id="recipeSearch-btn">SEARCH FOR RECIPE</button>
-	
+
+	<div id="search">
+	<!-- user input -->
+	<input id="userInput" class="input is-rounded" type="text" placeholder="Hungry?">
+	<!-- search button -->
+	<button id="recipeSearch-btn" class="button is-rounded">Search</button>
+	<!-- search history -->
+</div>
+
+<ul id ="history">Search History List:</ul>
+
 	<br>
 	<br>
 
@@ -110,23 +107,21 @@ height: 550px;
 				<!-- Box 1 -->
 			<div class="column">
 				<div class="box custom-box">
-				<!-- <div class="divScroll"></div> -->
    			<ul class="divScroll" id="recipe-list1"></ul>
-				<!-- <button id1="searchMore">Learn More</button> -->
 				</div>
 			</div>
 
 				<!-- Box 2 -->
 			<div class="column">
 				<div class="box custom-box">
-				<ul class="divScroll" id="recipe-list2">Recipe will appear here</ul>
+				<ul class="divScroll" id="recipe-list2"></ul>
 				</div>
 			</div>
 
 				<!-- Box 3-->
 			<div class="column">
 				<div class="box custom-box">
-				<ul class="divScroll" id="recipe-list3">Recipe will appear here</ul>
+				<ul class="divScroll" id="recipe-list3"></ul>
 				</div>
 			</div>
 			</div>
@@ -135,21 +130,21 @@ height: 550px;
 			<div class="columns">
 				<div class="column">
 					<div class="box custom-box">
-						<ul class="divScroll" id="recipe-list4">Recipe will appear here:</ul>
+						<ul class="divScroll" id="recipe-list4"></ul>
 					</div>
 				</div>
 
 			<!-- Box 5 -->
 			<div class="column">
 				<div class="box custom-box">
-				<ul class="divScroll" class="divScroll" id="recipe-list5">Recipe will appear here</ul>
+				<ul class="divScroll" class="divScroll" id="recipe-list5"></ul>
 				</div>
 			</div>
 
 				<!-- Box 6 -->
 			<div class="column">
 				<div class="box custom-box">
-				<ul class="divScroll" id="recipe-list6">Recipe will appear here</ul>
+				<ul class="divScroll" id="recipe-list6"></ul>
 				</div>
 			</div>
 		</div>
@@ -161,22 +156,21 @@ height: 550px;
 			<div class="column">
 				<div class="box custom-box">
 				<!-- <div class="divScroll"></div> -->
-   			<ul class="divScroll" id="recipe-list7">Recipe will appear here</ul>
-				<!-- <button id1="searchMore">Learn More</button> -->
+   			<ul class="divScroll" id="recipe-list7"></ul>
 				</div>
 			</div>
 
 				<!-- Box 8 -->
 			<div class="column">
 				<div class="box custom-box">
-				<ul class="divScroll" id="recipe-list8">Recipe will appear here</ul>
+				<ul class="divScroll" id="recipe-list8"></ul>
 				</div>
 			</div>
 
 				<!-- Box 9-->
 			<div class="column">
 				<div class="box custom-box">
-				<ul class="divScroll" id="recipe-list9">Recipe will appear here</ul>
+				<ul class="divScroll" id="recipe-list9"></ul>
 				</div>
 			</div>
 			</div>
@@ -185,21 +179,21 @@ height: 550px;
 			<div class="columns">
 				<div class="column">
 					<div class="box custom-box">
-						<ul class="divScroll" id="recipe-list10">Recipe will appear here:</ul>
+						<ul class="divScroll" id="recipe-list10"></ul>
 					</div>
 				</div>
 
 			<!-- Box 11 -->
 			<div class="column">
 				<div class="box custom-box">
-				<ul class="divScroll" class="divScroll" id="recipe-list11">Recipe will appear here</ul>
+				<ul class="divScroll" class="divScroll" id="recipe-list11"></ul>
 				</div>
 			</div>
 
 				<!-- Box 12 -->
 			<div class="column">
 				<div class="box custom-box">
-				<ul class="divScroll" id="recipe-list12">Recipe will appear here</ul>
+				<ul class="divScroll" id="recipe-list12"></ul>
 				</div>
 			
     </div>
@@ -210,8 +204,7 @@ height: 550px;
 				<!-- Box 13 -->
 			<div class="column">
 				<div class="box custom-box">
-				<!-- <div class="divScroll"></div> -->
-   			<ul class="divScroll" id="recipe-list13">Recipe will appear here</ul>
+   			<ul class="divScroll" id="recipe-list13"></ul>
 				<!-- <button id1="searchMore">Learn More</button> -->
 				</div>
 			</div>
@@ -219,14 +212,14 @@ height: 550px;
 				<!-- Box 14 -->
 			<div class="column">
 				<div class="box custom-box">
-				<ul class="divScroll" id="recipe-list14">Recipe will appear here</ul>
+				<ul class="divScroll" id="recipe-list14"></ul>
 				</div>
 			</div>
 
 				<!-- Box 15-->
 			<div class="column">
 				<div class="box custom-box">
-				<ul class="divScroll" id="recipe-list15">Recipe will appear here</ul>
+				<ul class="divScroll" id="recipe-list15"></ul>
 				</div>
 			</div>
 			</div>
@@ -235,21 +228,21 @@ height: 550px;
 			<div class="columns">
 				<div class="column">
 					<div class="box custom-box">
-						<ul class="divScroll" id="recipe-list16">Recipe will appear here:</ul>
+						<ul class="divScroll" id="recipe-list16"></ul>
 					</div>
 				</div>
 
 			<!-- Box 17 -->
 			<div class="column">
 				<div class="box custom-box">
-				<ul class="divScroll" class="divScroll" id="recipe-list17">Recipe will appear here</ul>
+				<ul class="divScroll" class="divScroll" id="recipe-list17"></ul>
 				</div>
 			</div>
 
 				<!-- Box 18 -->
 			<div class="column">
 				<div class="box custom-box">
-				<ul class="divScroll" id="recipe-list18">Recipe will appear here</ul>
+				<ul class="divScroll" id="recipe-list18"></ul>
 				</div>
 			</div>
 			</div>

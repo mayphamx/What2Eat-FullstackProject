@@ -1,8 +1,12 @@
+// constant var for element
 const searchBtn = document.getElementById("map-search");
-searchBtn.addEventListener('click', getCoor);
+// event click & run function
+searchBtn.addEventListener('click', getCoordinates);
 
-function getCoor() {
+// retrieve coordinates by tomtom api data
+function getCoordinates() {
   var userInput = document.getElementById('user-input').value;
+  // define user input and concat to tomtom api string
   var address = userInput.split(' ');
   console.log(address);
   var urlArray = "";
@@ -10,66 +14,48 @@ function getCoor() {
     urlArray +=(address[i]+"%20");
     urlArray.toString();
   }
-  console.log(urlArray);
-
-fetch(`https://api.tomtom.com/search/2/search/${urlArray}.json?key=dZ5BlNRNhnRnPRnSsYHD3rLpSg7UFuY9`)
-.then (function (response) {
-  return response.json();
-})
-.then (function (data) {
-  // console.log(data);
-  let lat = data.results[0].position.lat;
-  let lon = data.results[0].position.lon;
-  // getLocalRestaurant(lat, lon);
-  console.log(lat, lon);
-  initMap(lat,lon);
+  // tomtom fuzzy search fetch call
+  fetch(`https://api.tomtom.com/search/2/search/${urlArray}.json?key=dZ5BlNRNhnRnPRnSsYHD3rLpSg7UFuY9`)
+  .then (function (response) {
+    return response.json();
+  })
+  .then (function (data) {
+    console.log(data);
+    // define lat and lon as vars per data info -> use as parameters in initMap function
+    let lat = data.results[0].position.lat;
+    let lon = data.results[0].position.lon;
+    initMap(lat,lon);
 })
 }
 
-// function getLocalRestaurant(lat, lon) {
-//   fetch(`https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&limit=20&radius=5000&categorySet=7315&view=Unified&key=dZ5BlNRNhnRnPRnSsYHD3rLpSg7UFuY9`)
-//   .then (function (response) {
-//     return response.json();
-//   })
-//   .then (function (data) {
-//     console.log(data);
-//   })
-// }
-
-// google api
-// initMap();
+// google places maps api call
 let map;
 let service;
 let infowindow;
 
 function initMap(lat,lon) {
   const sydney = new google.maps.LatLng(lat, lon);
-
+  // use element map to define id
   map = new google.maps.Map(document.getElementById("map"), {
     center: sydney,
     zoom: 15,
   });
 
+  // parameters for api
   const request = {
-    // parameters looking for restaurants
     location: sydney,
     radius: '500',
     query: 'restaurant',
-    // type: ['restaurant'],
-    // fields: ['name', 'geometry'],
   };
 
   service = new google.maps.places.PlacesService(map);
-  // nearbySearch - include location radius type (multiple results)
-  // findPlaceFromQuery - include query, fields (1 result only)
-  // textSearch - include location, radius, query (multiple results)
+  // google maps api search by text search 
   service.textSearch(request, (results, status) => {
     if (status === google.maps.places.PlacesServiceStatus.OK && results) {
       for (let i = 0; i < results.length; i++) {
         createMarker(results[i]);
         console.log(results[i]);
       }
-
       map.setCenter(results[0].geometry.location);
     }
   });
@@ -77,6 +63,7 @@ function initMap(lat,lon) {
 
 function createMarker(place) {
   function contentString(name, address, icon) {
+    // defines elements displayed on marker
     return`
   <div>
     <img src="${icon}"/>

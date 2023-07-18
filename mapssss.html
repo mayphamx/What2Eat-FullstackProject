@@ -3,80 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- source for google maps API pollfill -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  <link rel="stylesheet" type="text/css" href="./assets/style.css" />
-  <!-- <script type="module" src="./assets/script.js"></script> -->
   <title>What2Eat</title>
+  <link rel="stylesheet" type="text/css" href="./assets/style.css"/>
+<!-- styling css -->
+  <style>
+  body {
+  background-color: #3d9db2bf;}  
+
+  .header {
+	background-color: #87cadabf;
+	border-radius: 30px;
+  font-size : larger;}
+  </style>
 </head>
 
 <body>
+<!-- header -->
+ <div class="content container has-text-centered is-fullheight justify-content-center">
+  <br>
+  <section class="header">
+   <div class="hero-body">
+    <h1 class="title">🍉🍍🍅 WHAT 2 EAT (IN) 🍅🍍🍉</h1>
+   </div>
+  </section>
+  </div>
+
+  <!-- user input and button search -->
 <div id="search">
   <input id="user-input" class="input is-rounded" type="text" placeholder="Enter your address">
   <button  class="button is-rounded" id="map-search">Search</button>
 </div>
 
+<!-- google maps API ID -->
 <div id="map"></div>
-
-<!-- google places api -->
-<script>
-// let map;
-// let service;
-// let infowindow;
-
-// function initMap() {
-  
-  //   const sydney = new google.maps.LatLng(30.27, -97.74);
-  
-//   infowindow = new google.maps.InfoWindow();
-//   map = new google.maps.Map(document.getElementById("map"), {
-  //     center: sydney,
-//     zoom: 15,
-//   });
-
-//   const request = {
-  //     // parameters looking for restaurants
-  //     location: sydney,
-  //     radius: '500',
-  //     query: 'restaurant',
-//     // type: ['restaurant'],
-//     // fields: ['name', 'geometry'],
-//   };
-
-//   service = new google.maps.places.PlacesService(map);
-//   // nearbySearch - include location radius type (multiple results)
-//   // findPlaceFromQuery - include query, fields (1 result only)
-//   // textSearch - include location, radius, query (multiple results)
-//   service.textSearch(request, (results, status) => {
-  //     if (status === google.maps.places.PlacesServiceStatus.OK && results) {
-//       for (let i = 0; i < results.length; i++) {
-//         createMarker(results[i]);
-//         console.log(results[i]);
-//       }
-
-//       map.setCenter(results[0].geometry.location);
-//     }
-//   });
-// }
-
-// function createMarker(place) {
-//   if (!place.geometry || !place.geometry.location) return;
-
-//   const marker = new google.maps.Marker({
-  //     map,
-//     position: place.geometry.location,
-//   });
-
-//   google.maps.event.addListener(marker, "click", () => {
-//     infowindow.setContent(place.name || "");
-//     infowindow.open(map);
-//   });
-// }
-// window.initMap = initMap;
-</script>
-
 
 <!-- JS -->
 <script src="./assets/scriptmap.js"></script>
+<!-- source for google maps API -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDr_dT0gyfPk9TNst7heS7aD12S8A2nLk&libraries=places&callback=initMap"></script>
 </body>
 </html>
