@@ -20,7 +20,7 @@ The CSS framework used is linked below--
 Bulma: https://bulma.io/documentation/
 
 ## Usage
-![Homepage Screenshot](<assets/images/images/homepage screenshot.png>)
+![Homepage Screenshot](<assets/images/images/homepage centered screenshot.png>)
 ![Recipe Page Screenshot](./assets/images/images/foodimage.png)
 ![Maps Screenshot](<assets/images/images/maps screenshot.png>)
 
