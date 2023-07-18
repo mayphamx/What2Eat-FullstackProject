@@ -5,11 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- source for google maps API pollfill -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  <link rel="stylesheet" type="text/css" href="./assets/style.css" />
   <title>What2Eat</title>
+  <link rel="stylesheet" type="text/css" href="./assets/style.css"/>
+<!-- styling css -->
+  <style>
+  body {
+  background-color: #3d9db2bf;}  
+
+  .header {
+	background-color: #87cadabf;
+	border-radius: 30px;
+  font-size : larger;}
+  </style>
 </head>
 
 <body>
+<!-- header -->
+ <div class="content container has-text-centered is-fullheight justify-content-center">
+  <br>
+  <section class="header">
+   <div class="hero-body">
+    <h1 class="title">🍉🍍🍅 WHAT 2 EAT (IN) 🍅🍍🍉</h1>
+   </div>
+  </section>
+  </div>
+
+  <!-- user input and button search -->
 <div id="search">
   <input id="user-input" class="input is-rounded" type="text" placeholder="Enter your address">
   <button  class="button is-rounded" id="map-search">Search</button>
