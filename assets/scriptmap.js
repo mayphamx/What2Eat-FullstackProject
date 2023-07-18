@@ -20,21 +20,21 @@ fetch(`https://api.tomtom.com/search/2/search/${urlArray}.json?key=dZ5BlNRNhnRnP
   // console.log(data);
   let lat = data.results[0].position.lat;
   let lon = data.results[0].position.lon;
-  getLocalRestaurant(lat, lon);
+  // getLocalRestaurant(lat, lon);
   console.log(lat, lon);
   initMap(lat,lon);
 })
 }
 
-function getLocalRestaurant(lat, lon) {
-  fetch(`https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&limit=20&radius=5000&categorySet=7315&view=Unified&key=dZ5BlNRNhnRnPRnSsYHD3rLpSg7UFuY9`)
-  .then (function (response) {
-    return response.json();
-  })
-  .then (function (data) {
-    console.log(data);
-  })
-}
+// function getLocalRestaurant(lat, lon) {
+//   fetch(`https://api.tomtom.com/search/2/nearbySearch/.json?lat=${lat}&lon=${lon}&limit=20&radius=5000&categorySet=7315&view=Unified&key=dZ5BlNRNhnRnPRnSsYHD3rLpSg7UFuY9`)
+//   .then (function (response) {
+//     return response.json();
+//   })
+//   .then (function (data) {
+//     console.log(data);
+//   })
+// }
 
 // google api
 // initMap();
@@ -76,16 +76,17 @@ function initMap(lat,lon) {
 }
 
 function createMarker(place) {
-  function contentString(name, address) {
+  function contentString(name, address, icon) {
     return`
   <div>
+    <img src="${icon}"/>
     <h2>${name}</h2>
     <p>${address}</p>
   </div>
-  `} 
-  ;
+  `};
+
   infowindow = new google.maps.InfoWindow({
-    content: contentString(place.name,place.formatted_address)
+    content: contentString(place.name,place.formatted_address,place.icon)
   });
   if (!place.geometry || !place.geometry.location) return;
 
@@ -93,7 +94,8 @@ function createMarker(place) {
     map,
     position: place.geometry.location,
     title: place.name,
-    address: place.formatted_address
+    address: place.formatted_address,
+    icon: place.icon
   });
 
   marker.addListener("click", () => {
@@ -101,12 +103,12 @@ function createMarker(place) {
       anchor: marker,
       map,
     });
-  })
+  });
 
   console.log(place);
   google.maps.event.addListener(marker, "click", () => {
     console.log(marker);
-    infowindow.setContent(contentString(place.name,place.formatted_address));
+    infowindow.setContent(contentString(place.name,place.formatted_address,place.icon));
     infowindow.open(map);
   });
 }
