@@ -30,3 +30,17 @@ body {
     margin-top: 85px;
   }
 }
+
+/* Tasty.html */
+.modal-card-foot {
+  display: flex;
+  justify-content: center;
+}
+
+#close {
+  background-color: #3d9db2;
+}
+
+.modal-card-title::before {
+  background-color: #3d9db2;
+}

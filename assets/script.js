@@ -17,23 +17,34 @@ recipeSearchButton.addEventListener('click',storeSearch);
 var historyList = document.getElementById('history');
 
 // empty array to be filled by search history items 
-var allSearch= [];
+if (localStorage.getItem('Search-History') != null){
+  var allSearch = JSON.parse(localStorage.getItem('Search-History'));
+  searchHistory();
+} else {
+  var allSearch= [];
+}
+
 
 // stores searches in local storage 
 function storeSearch() {
   var userSearch = document.getElementById('userInput').value;
-  allSearch.push(userSearch);
-  localStorage.setItem("Search-History", JSON.stringify(allSearch));
   getRecipe();
-  searchHistory();
+  searchHistory(userSearch);
 }
 
 // creates and displays buttons for search history items 
-function searchHistory() {
-  var storedSearches = JSON.parse(localStorage.getItem('Search-History'));
+function searchHistory(userSearch) {
+  if (JSON.parse(localStorage.getItem('Search-History'))){
+     var storedSearches = JSON.parse(localStorage.getItem('Search-History'));
+  } else { var storedSearches = []}
+ 
   if (storedSearches !==null) {
     allSearch = storedSearches;
 
+   userSearch ? allSearch.push(userSearch) : null;
+    localStorage.setItem("Search-History", JSON.stringify(allSearch));
+
+    historyList.innerHTML = '';
     for(i=0; i<storedSearches.length; i++) {
       var searchPlacement = storedSearches[i];
       var btn = document.createElement('button');
@@ -196,8 +207,17 @@ historyList.addEventListener('click', function(event) {
       }
     $(".box").css({"background-image":"none"});
   })
-  .catch( function(err){
-    alert("No Recipes Found");
+  .catch(function(err){
+    $("#errorModal").addClass("is-active");
     console.log(err);
+    
   })
+  var close = document.getElementById("close");
+  var modal = document.getElementById("errorModal")
+  close.addEventListener("click", function(event){
+  window.onclick = function(event) {
+    if (event.target == close) {
+      modal.style.display = "none";
+    }
+  }})
 }
