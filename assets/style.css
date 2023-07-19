@@ -25,12 +25,6 @@ body {
   padding: 1% 40%;
 }
 
-@media screen and (max-width: 768px) {
-  #map {
-    margin-top: 85px;
-  }
-}
-
 /* Tasty.html */
 .modal-card-foot {
   display: flex;
