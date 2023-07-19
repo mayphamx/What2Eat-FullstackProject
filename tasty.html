@@ -112,6 +112,22 @@
 		<button id="recipeSearch-btn" class="button is-rounded">Search</button>
 	</div>
 
+	<div id="errorModal" class="modal">
+		<div class="modal-background"></div>
+		<div class="modal-card">
+			<header class="modal-card-head">
+				<p class="modal-card-title">ERROR</p>
+				<!-- <button class="delete" aria-label="close"></button> -->
+			</header>
+			<section class="modal-card-body">
+			NO RECIPES FOUND!
+			</section>
+			<footer class="modal-card-foot">
+				<button class="button is-success" id="close">OK</button>
+			</footer>
+		</div>
+	</div>
+
 	<!-- search history -->
 	<ul id ="history"></ul>
 
@@ -263,6 +279,9 @@
     </div>
 	</div>
 	</div>
+
+	
+
 
 <!-- JS -->
 <script src="./assets/script.js"></script>
